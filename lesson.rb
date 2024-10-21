@@ -1,1 +1,2 @@
-puts 12345 + 6789
+message = gets.to_i
+puts message
