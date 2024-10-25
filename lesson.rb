@@ -1,4 +1,2 @@
-message = gets.chomp
-puts message
-message = gets.chomp
-puts message
+x = 50
+puts x - 10
