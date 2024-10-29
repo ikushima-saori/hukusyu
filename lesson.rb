@@ -1,69 +1,41 @@
-<%= stylesheet_link_tag 'public/customers' %>
-<div class="container">
+class ApplicationController < ActionController::Base
+  before_action :restrict_guest_access  #↓で定義  全てのcontrollerにゲストのアクセス制限を適用
+  helper_method :guest_user_signed_in?  #↓で定義  application.htmlでguest_user_signed_in?を使いたいのでhelper_methodとして設定(viewではcontrollerに定義したメソッドを直で使えない)
 
-  <div class="row">
-    <h1>ユーザー一覧</h1>
-  </div>
+  protected
 
-  <div class="row">
-    <%= display_flash_messages %> <!--ヘルパーメソッドで指定-->
-  </div>
+  #ゲストユーザーにアクセス制限をかける
+  def restrict_guest_access
+    if guest_user_signed_in?  #↓で定義
+      unless allowed_guest_actions?  #↓で定義
+        redirect_to root_path, alert: 'ゲストユーザーはTOPとaboutページのみ閲覧可能です。'
+      end
+    end
+  end
+  def guest_user_signed_in? #メールアドレスがゲストのアドレスかどうか
+    customer_signed_in? && current_customer.email == Customer::GUEST_USER_EMAIL #GUEST_USER_EMAILはcustomerモデルで定義
+  end
+  def allowed_guest_actions?  #homesコントローラのtopとabout、sesstionsコントローラのdestroyしかアクセスできない
+    controller_name == 'homes' && %w[top about].include?(action_name) || controller_name == 'sessions' && action_name == 'destroy'
+  end
 
-  <div class="row">
-    <% @customers.each do |customer| %>
-    <table>
-        <tbody>
-            <tr>
-              <td>
-                <%= link_to customer_path(customer.id), class: 'link-button' do %>
-                  <div class="profile-container">
-                    <%= image_tag customer.get_profile_image(80, 80), class: 'profile-image' %>
-                    <div class="profile-name">
-                      <span><%= customer.name %></span>
-                    </div>
-                  </div>
-                <% end %>
-              </td>
-              <td>
-                <%= "アイデア数：#{customer.ideas.count}個 " %>
-              </td>
-              <% if current_customer != customer %>
-                <td>
-                  <div id="follow_btn_<%= customer.id %>">
-                    <%= render "public/relationships/followbtn", customer: customer %>
-                  </div>
-                </td>
-              <% end %>
-            </tr>
-            <tr>
-              <td colspan=3>好物</td>
-            </tr>
-            <tr>
-              <td colspan=3 class="preference-style"><%= content_tag(:div, customer.preference, class: "scroll") %></td>
-            </tr>
-            <tr>
-              <td colspan=3>苦手</td>
-            </tr>
-            <tr>
-              <td colspan=3 class="preference-style"><%= content_tag(:div, customer.weak, class: "scroll") %></td>
-            </tr>
-            <tr>  <!--follower_customerとfollowed_customerはcustomerモデルで定義-->
-              <td><%= link_to "フォロー：#{customer.follower_customer.count}人", follower_customer_path(customer), class: 'link-button' %></td>
-              <td><%= link_to "フォロワー：#{customer.followed_customer.count}人", followed_customer_path(customer), class: 'link-button' %></td>
-              <td>
-                <% if customer.favorites.count > 0 %>  <!---customerに紐づいたfavoritesテーブルのレコードがあれば-->
-                  <%= link_to "お気に入りアイデア：#{customer.favorites.count}個", favorite_customer_path(customer.id), class: 'link-button' %>
-                <% else %>
-                  お気に入り無し
-                <% end %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      <% end %>
-  </div>
+  #adminコントローラアクセス制限用
+   def admin_login!  #管理者としてログインしていなければアクセスさせない
+     unless admin_signed_in?
+       redirect_to root_path, alert: "管理者としてログインしてください。"
+     end
+   end
+  def customer_notview!  #ユーザーとしてログインしている場合はアクセスさせない
+    if customer_signed_in?
+      redirect_to root_path, alert: '管理者としてログインしてください。'
+    end
+  end
 
-  <div class="row">
-    <%= paginate @customers, class: "pagination" %>
-  </div>
-</div>
+  #publicコントローラアクセス制限用
+   def admin_notview!  #管理者としてログインしている場合はアクセスさせない
+     if admin_signed_in?
+       redirect_to admin_path, alert: "ユーザーとしてログインしてください。"
+     end
+   end
+
+end
