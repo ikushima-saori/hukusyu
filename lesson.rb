@@ -1,26 +1,37 @@
-puts "計算をはじめます"
-puts "何回繰り返しますか？"
 
-input = gets.to_i
+# インスタンスメソッド
+class Car
 
-i = 1
-while i <= input do
-  puts "#{i}回目の計算"
-  puts "2つの値を入力してください"
+  def move(direction, distance)
+    self.turn(direction)
+    self.run(distance)
+  end
 
-  a = gets.to_i
-  b = gets.to_i
+  def turn(direction)
+    puts "#{direction}に曲がります。"
+  end
 
-  puts "a=#{a}"
-  puts "b=#{b}"
-
-  puts "計算結果を出力します"
-  puts "#{a}+#{b}=#{a + b}"
-  puts "#{a}-#{b}=#{a - b}"
-  puts "#{a}*#{b}=#{a * b}"
-  puts "#{a}/#{b}=#{a / b}"
-
-  i += 1
+  def run(distance)
+    puts "車で#{distance}キロ走ります。"
+  end
 end
 
-puts "計算を終了します"
+car = Car.new
+car.move("右", 5)
+
+# クラスメソッド
+class Car
+  def self.run(distance)
+    puts "車で#{distance}キロ走ります。"
+  end
+end
+
+Car.run(10)
+
+class Car
+  def self.turn(direction)
+    puts "#{direction}に曲がります。"
+  end
+end
+
+Car.turn("右")
