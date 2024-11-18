@@ -3,8 +3,6 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/186a26f36d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="caravan.css" />
     <title>CARAVAN</title>
   </head>
@@ -16,11 +14,6 @@
           CARAVAN
         </a>
       </h1>
-      <div class="social">
-        <i class="fab fa-facebook-square"></i>
-        <i class="fab fa-twitter-square"></i>
-        <i class="fab fa-instagram"></i>
-      </div>
     </header>
 
     <nav>
