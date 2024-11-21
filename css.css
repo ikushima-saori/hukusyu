@@ -3,28 +3,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #6c6b6b;
-}
-
-a {
-  text-decoration: none;
 }
 
 header {
-  width: 90%;
-  padding: 15px 0;
-  margin: 0 auto;
+  width: 100%;
+  padding: 20px 0;
   text-align: center;
-}
-
-header .heading {
-  font-size: 32px;
 }
 
 .nav-list {
   text-align: center;
-  padding: 10px 0;
+  padding: 15px 0;
   margin: 0 auto;
+  border-bottom: 1px solid #848282;
+  border-top: 1px solid #848282;
 }
 
 .nav-list-item {
@@ -33,171 +25,83 @@ header .heading {
   margin: 0 20px;
 }
 
-.main-visual {
-  width: 100%;
-  height: 300px;
-  background-image: url(img/mv.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-.main-visual-content {
-  width: 40%;
-  height: 300px;
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding-top: 105px;
-}
-
-.main-visual-text {
-  color: #fff;
-}
-
-.main-visual-name {
-  margin-top: 30px;
-  color: #fff;
-}
-
-main {
+.main {
   width: 800px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 70px 0;
-}
-
-.blog {
-  width: 540px;
-  margin-right: 30px;
-}
-
-.blog-heading {
-  border-bottom: 8px solid #f7f7f7;
-  text-align: center;
-  line-height: 0.6;
-}
-
-.blog-box {
-  padding-top: 50px;
-}
-
-.blog-item {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #f7f7f7;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.blog-image {
-  height: 180px;
-}
-
-.blog-text {
-  padding: 25px 0 0 30px;
-}
-
-.blog-text-heading {
-  padding-bottom: 15px;
-}
-
-.blog-date {
-  font-size: 12px;
-  display: inline-block;
-}
-
-.category {
-  display: inline-block;
-  padding: 5px 8px;
-  background-color: #acabab;
-  border-radius: 3px;
-  color: #fff;
-  font-size: 11px;
-}
-
-.pagination {
-  text-align: center;
-  padding-top: 50px;
-}
-
-.pagination p {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  margin: 0 5px;
-  color: #fff;
-  background-color: #acabab;
-  border-radius: 3px;
-  line-height: 30px;
-}
-
-.sidebar {
-  width: 230px;
-}
-
-.common-heading {
-  border-bottom: 8px solid #f7f7f7;
-  text-align: center;
-  line-height: 0.6;
-}
-
-.sidebar-contents {
-  padding: 50px 0;
-}
-
-.popular-text,
-.categories-text {
-  padding-bottom: 5px;
-  border-bottom: 1px solid #f7f7f7;
-  margin-bottom: 5px;
-}
-
-.popular-text:last-child,
-.categories-text:last-child {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-.instagram .sidebar-contents {
+  margin: 50px auto;
   display: flex;
   flex-wrap: wrap;
 }
 
-.instagram-box {
-  width: 110px;
-  padding-top: 110px;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 10px;
+.box1 {
+  width: 200px;
+  height: 200px;
+  background-color: #e6ffe9;
 }
 
-.instagram-box:nth-child(odd) {
-  margin: 0 10px 10px 0;
+.box2 {
+  width: 200px;
+  height: 200px;
+  background-color: #cbffd3;
 }
 
-.instagram-box:nth-child(1) {
-  background-image: url(img/airport.jpg);
+.box3 {
+  width: 200px;
+  height: 200px;
+  background-color: #aeffbd;
 }
 
-.instagram-box:nth-child(2) {
-  background-image: url(img/japan.jpg);
+.box4 {
+  width: 200px;
+  height: 200px;
+  background-color: #93ffab;
 }
 
-.instagram-box:nth-child(3) {
-  background-image: url(img/snow.jpg);
+.box5 {
+  width: 200px;
+  height: 200px;
+  background-color: #f3ffd8;
 }
 
-.instagram-box:nth-child(4) {
-  background-image: url(img/japan2.jpg);
+.box6 {
+  width: 200px;
+  height: 200px;
+  background-color: #edffbe;
 }
 
-.instagram-box:nth-child(5) {
-  background-image: url(img/lake.jpg);
+.box7 {
+  width: 200px;
+  height: 200px;
+  background-color: #e9ffa5;
 }
 
-.instagram-box:nth-child(6) {
-  background-image: url(img/road.jpg);
+.box8 {
+  width: 200px;
+  height: 200px;
+  background-color: #e4ff8d;
+}
+
+.box9 {
+  width: 200px;
+  height: 200px;
+  background-color: #d9e5ff;
+}
+
+.box10 {
+  width: 200px;
+  height: 200px;
+  background-color: #bad3ff;
+}
+
+.box11 {
+  width: 200px;
+  height: 200px;
+  background-color: #a4c6ff;
+}
+
+.box12 {
+  width: 200px;
+  height: 200px;
+  background-color: #8eb8ff;
 }
 
 footer {
