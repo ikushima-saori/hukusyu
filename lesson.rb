@@ -1,51 +1,27 @@
 
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="caravan.css" />
-    <title>CARAVAN</title>
-  </head>
+puts "計算をはじめます"
+puts "何回繰り返しますか？"
 
-  <body>
-    <header>
-      <h1 class="heading">
-        <a href="index.html">
-          CARAVAN
-        </a>
-      </h1>
-    </header>
+input = gets.to_i
 
-    <nav>
-      <ul class="nav-list">
-        <li class="nav-list-item">
-          <a href="index.html">Home</a>
-        </li>
-        <li class="nav-list-item">About</li>
-        <li class="nav-list-item">Topic</li>
-      </ul>
-    </nav>
+i = 1
+while i <= input do
+  puts "#{i}回目の計算"
+  puts "2つの値を入力してください"
 
-    <div class="main-visual">
-      <div class="main-visual-content">
-        <p class="main-visual-text">
-          The world is a book<br />
-          and those who do not travel<br />
-          read only one page.
-        </p>
-        <p class="main-visual-name">
-          St. Augustine
-        </p>
-      </div>
-    </div>
+  a = gets.to_i
+  b = gets.to_i
 
-    <div class="main">
-      <div class="blog"></div>
-      <div class="sidebar"></div>
-    </div>
+  puts "a=#{a}"
+  puts "b=#{b}"
 
-    <footer>
-      <p class="footer-text">© All rights reserved by Infratop.Inc.</p>
-    </footer>
-  </body>
-</html>
+  puts "計算結果を出力します"
+  puts "#{a}+#{b}=#{a + b}"
+  puts "#{a}-#{b}=#{a - b}"
+  puts "#{a}*#{b}=#{a * b}"
+  puts "#{a}/#{b}=#{a / b}"
+
+  i += 1
+end
+
+puts "計算を終了します"
